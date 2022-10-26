@@ -20,6 +20,22 @@ json2hash =  JSON.parse(json, symbolize_names: true)
 
 results = json2hash[:results][0]
 # puts(results)
-results.each do |key, value|
-    print(key,":",value,"\n")
-end
+# results.each do |key, value|
+#     print(key,":",value,"\n")
+# end
+
+id = ""
+zipcode = results[:zipcode]
+pref = results[:address1]
+city = results[:address2]
+local = results[:address3]
+createtime = 1970
+updatetime = 2022
+
+puts("id is #{id}")
+puts("zipcode is #{zipcode}")
+puts("pref is #{pref}")
+puts("city is #{city}")
+puts("local is #{local}")
+puts("createtime is #{createtime}")
+puts("updatetime is #{updatetime}")
