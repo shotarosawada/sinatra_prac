@@ -1,8 +1,12 @@
 require 'sinatra'
 require 'sinatra/reloader'
 require 'sqlite3'
-require 'activerecord'
-require 'sinatra-activerecord'
+#require 'activerecord'
+#require 'sinatra-activerecord'
 get '/' do
-  "Hello world"
+  db = SQLite3::Database.new("db/sinatra.db")
+  db.execute("select * from myapp;") do |row|
+    print row
+  end
+  db.close
 end
