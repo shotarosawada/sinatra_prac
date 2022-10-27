@@ -1,0 +1,8 @@
+create table bbsdata (
+	id integer primary key,
+	name varchar(30),
+	entry varchar(150)
+	);
+
+insert into bbsdata values (1, 'Diplodocus', 'The first entry.');
+insert into bbsdata values (2, 'Allosaurus', 'The second entry.');
