@@ -1,11 +1,22 @@
+
 <table border>
 
   <tr>
-    <th>ID</th>
-    <th>Name</th>
-    <th>Entry</th>
+    <th>id</th>
+    <th>郵便番号</th>
+    <th>都道府県</th>
+    <th>市区町村</th>
+    <th>町域名</th>
+    <th>作成日時</th>
+    <th>更新日時</th>
   </tr>
 
   <%= @h %>
 
+  <form method="post" action="/new">
+  <tr>
+  <td><input type="text" name="zip_code"></td>
+  <td><input type="submit" value="go"></td>
+  </tr>
+  </form>
 </table>
