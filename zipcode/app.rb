@@ -32,18 +32,20 @@ post '/new' do
         @message = response[:message] || '指定した郵便番号は存在しません'
     else
         record = zipcode_hash[:results][0]
-        # 同一Zipcodeの重複登録不可
         if(Zip_codes.find_by(zip_code: record[:zipcode]))
             puts ('Requested zipcode Already recorded.')
-            @message = response[:message] || '登録済みの郵便番号です'
-        # 登録処理
+            # 更新処理
+            target_record = Zip_codes.find_by(record[:zip_code])
+            target_record[:updated_at] = Time.new
+            target_record.save
         else
-            s = Zip_codes.new
-            s.zip_code = record[:zipcode]
-            s.prefecture = record[:address1]
-            s.city = record[:address2]
-            s.town_area = record[:address3]
-            s.save
+            # 登録処理
+            inserting_record = Zip_codes.new
+            inserting_record.zip_code = record[:zipcode]
+            inserting_record.prefecture = record[:address1]
+            inserting_record.city = record[:address2]
+            inserting_record.town_area = record[:address3]
+            inserting_record.save
         end
     end
 
