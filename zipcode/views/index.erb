@@ -1,5 +1,21 @@
+<h1>郵便番号検索</h1>
 
-<table border>
+<h2>郵便番号を入力して検索</h2>
+
+<div class="inputErrArea"><%= @inputErrMsg %></div>
+<form method="post" action="/new">
+  <input required type="text" max_length=8 name="zip_code" placeholder="郵便番号を入力">
+  <input type="submit" value="検索">
+</form>
+
+<% unless @message.nil? %>
+<p style="color: red"><%= @message %></p>
+<% end %>
+
+<h2>検索した郵便番号一覧</h2>
+
+
+<table>
 
   <tr>
     <th>id</th>
@@ -11,12 +27,6 @@
     <th>更新日時</th>
   </tr>
 
-  <%= @h %>
+  <%= @table %>
 
-  <form method="post" action="/new">
-  <tr>
-  <td><input type="text" name="zip_code"></td>
-  <td><input type="submit" value="go"></td>
-  </tr>
-  </form>
 </table>

@@ -1,0 +1,7 @@
+div.inputErrArea{
+    height:100px;
+    width:565px;
+    text-align: left;
+    display: inline-block;
+    color: red;
+}
